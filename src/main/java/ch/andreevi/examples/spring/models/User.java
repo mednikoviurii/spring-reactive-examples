@@ -17,4 +17,8 @@ public class User {
     String email;
     String password;
     List<Role> roles;
+
+    public static User dummy() {
+        return new User("userId", "email", "password", null);
+    }
 }

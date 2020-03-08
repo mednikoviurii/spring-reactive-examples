@@ -7,6 +7,7 @@ This repository contains a source code, that accompanies posts on reactive Sprin
 In this series are already published following posts:
 
 * [Custom update queries with Reactive MongoDB in Spring](https://www.andreevi.ch/custom-update-queries-with-reactive-mongodb-for-spring/)
+* [Unit testing of Spring Boot services with Project Reactor and Mockito](https://andreevi.ch/unit-testing-of-spring-services-reactor-test/)
 
 ## How to use
 

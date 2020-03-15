@@ -2,6 +2,7 @@ package ch.andreevi.examples.spring.services;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
@@ -39,5 +40,12 @@ class PersonServiceImplTest {
         when(repository.findById(id)).thenReturn(source);
         StepVerifier.create(service.findById(id)).assertNext(person -> 
             assertThat(person).hasNoNullFieldsOrProperties()).verifyComplete();
+    }
+
+    @Test
+    void removeTest() {
+        String id = "id";
+        when(repository.deleteById(anyString())).thenReturn(Mono.empty());
+        StepVerifier.create(service.remove(id)).verifyComplete();
     }
 }

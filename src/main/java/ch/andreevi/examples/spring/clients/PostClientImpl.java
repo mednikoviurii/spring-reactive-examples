@@ -1,5 +1,6 @@
 package ch.andreevi.examples.spring.clients;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -26,6 +27,11 @@ public class PostClientImpl implements PostClient {
     @Override
     public Mono<Post> findById(String id) {
         return this.client.get().uri("/{id}", id).retrieve().bodyToMono(Post.class);
+        // return this.client.get()
+        //     .uri("/{id}", id)
+        //     .retrieve()
+        //     .onStatus(HttpStatus::isError, r -> Mono.error(new RuntimeException()))
+        //     .bodyToMono(Post.class);
     }
 
     @Override
